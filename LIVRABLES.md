@@ -9,7 +9,7 @@ Google Drive de l'équipe (lien ci-dessous).
 | Livrable demandé | Où le trouver | État |
 | --- | --- | --- |
 | Fiche sujet | Drive : `01 — Fiche sujet` | Rendue |
-| Prototype fonctionnel (mesure et actionnement via BLE) | `node/` (nœud ESP32, serveur GATT BLE), `gateway_pc/` et `gateway/` (passerelles), `wokwi/` (jumeau numérique) | Simulation validée ; BLE sur carte : voir jalon ci-dessous |
+| Prototype fonctionnel (mesure et actionnement via BLE) | `node/` (nœud ESP32, serveur GATT BLE), `gateway_pc/` et `gateway/` (passerelles), `wokwi/` (jumeau numérique) | ✅ ESP32 réelle : BLE, mesures et commandes validés jusqu'à ThingsBoard ; capteurs simulés (pas de capteurs physiques) |
 | Schéma de câblage | `docs/schema/schema-cablage.md` (+ PNG et SVG) | Terminé |
 | Plateforme IoT et tableau de bord | ThingsBoard Cloud : `docs/guide-thingsboard.md`, sauvegarde `docs/thingsboard/tableau-de-bord-airwatt.json` | Terminé, validé en direct |
 | Estimation de prix | `docs/prix/estimation-prix.md` et `docs/prix/estimation-prix.xlsx` | Terminé (prix relevés le 27/11/2026) |
@@ -19,7 +19,7 @@ Google Drive de l'équipe (lien ci-dessous).
 
 | Jalon | Preuve | État |
 | --- | --- | --- |
-| Technologie configurée et communicante (chapitre 3) | Procédure `docs/checklist-carte.md` ; captures et vidéo nRF Connect sur Drive `05 — Démo` | À réaliser à la réception de la carte |
+| Technologie configurée et communicante (chapitre 3) | `docs/preuve-jalon-ble.md` ; captures nRF Connect et PDF sur Drive `05 - Demo` | ✅ Validé le 27/11/2026 sur ESP32 réelle |
 | Demo Day | Démo sur ESP32 (BLE réel) + tableau de bord ThingsBoard ; Wokwi et vidéo en secours | En préparation |
 
 ## Architecture

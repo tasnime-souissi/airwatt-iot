@@ -14,7 +14,7 @@ Le BLE est donc **le** lien qui doit être montré, configuré et fonctionnel.
 | Chaîne réelle nœud → BLE → PC → ThingsBoard | ✅ validée le 27/11/2026 : 0 paquet perdu, pic de pollution, mode manuel et vitesse pilotés depuis le tableau de bord |
 | Code de la passerelle ESP32 : client BLE, décodage, commandes (`gateway/`) | ⚠️ écrit et compilé, **jamais testé**, et **sans envoi MQTT vers ThingsBoard** |
 | Passerelle sur PC (`gateway_pc/`), pour une équipe avec une seule ESP32 | ✅ testée avec la carte le 27/11/2026 |
-| Preuves du jalon avec nRF Connect (captures + vidéo) | ⚠️ à faire |
+| Preuves du jalon avec nRF Connect | ✅ 7 captures (scan, connexion, caractéristiques, notifications pendant un pic) et document `docs/preuve-jalon-ble.md` (PDF sur Drive) |
 | Procédure de test du jalon BLE (`docs/checklist-carte.md`) | ✅ prête |
 | Simulation Wokwi | ❌ **pas de BLE** : Wokwi ne simule pas le Bluetooth, la simulation envoie directement en Wi-Fi |
 | Vidéo de démonstration | ❌ **pas de BLE** visible |
@@ -39,7 +39,7 @@ ESP32 (le BLE est intégré à la puce, aucun module supplémentaire).
 
 | Jalon | État |
 | --- | --- |
-| Technologie configurée et communicante avec le MCU (chapitre 3) | ✅ BLE validé sur carte le 27/11/2026 ; captures nRF Connect à joindre |
+| Technologie configurée et communicante avec le MCU (chapitre 3) | ✅ BLE validé sur carte le 27/11/2026 ; preuves : `docs/preuve-jalon-ble.md` + captures nRF Connect |
 | Demo Day | ⚠️ simulation et vidéo prêtes, BLE absent |
 
 ## Critères d'évaluation (section 7)

@@ -63,8 +63,8 @@ intégrée = vitesse du ventilateur et alerte, PC = passerelle BLE -> ThingsBoar
 - [x] B1. Nœud « carte seule » (BLE, bouton BOOT, LED intégrée) et « montage complet »
       (PMS5003 + BME280) — compilés, **à tester sur la carte**
 - [x] B2. Passerelle PC en Python — testée hors ligne, **à tester avec la carte**
-- [x] B3. Jalon noté : BLE configuré et communicant — validé le 27/11/2026 depuis le PC
-      (service GATT et paquets de 12 octets décodés) ; **captures nRF Connect à ajouter**
+- [x] B3. Jalon noté : BLE configuré et communicant — validé le 27/11/2026 depuis le PC et
+      avec nRF Connect sur téléphone (`docs/preuve-jalon-ble.md`)
 - [x] B4. Chaîne réelle nœud -> BLE -> PC -> ThingsBoard — validée le 27/11/2026 :
       mesures toutes les 2 s sans perte, pic de pollution (bouton BOOT, PM2.5 jusqu'à 65),
       commandes mode manuel / vitesse 71 % / retour auto transmises jusqu'à la carte
