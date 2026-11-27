@@ -25,5 +25,5 @@ et les vidéos sont regroupés dans le dossier partagé des livrables.
 
 | Ressource | Lien |
 | --- | --- |
-| Dossier des livrables | https://drive.google.com/drive/folders/1C_O0P9ZM3Hubbl6eTS8zG21W2MsEtpMZ |
+| Dossier des livrables | https://drive.google.com/drive/folders/1AZXj_ArIeZ0JRkVskmTT5RcFwdqmpAnM |
 | Jumeau numérique Wokwi | https://wokwi.com/projects/481848859547936769 |
