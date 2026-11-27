@@ -310,5 +310,5 @@
 <text x="578" y="1168" font-size="13" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">Masse GND</text>
 <line x1="710" y1="1163" x2="740" y2="1163" stroke="#1565c0" stroke-width="4"/>
 <text x="748" y="1168" font-size="13" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">Signal GPIO</text>
-<text x="1570" y="1168" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#757575">AirWatt, 3 SETP, ENSTAB | Révision 1.0 du 27/11/2026</text>
+<text x="1570" y="1168" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#757575">AirWatt, 3 SETP, ENSTAB | Révision 1.0</text>
 </svg>

@@ -3,10 +3,10 @@
 Ce document chiffre la solution complète (carte, communication, capteurs, actionneurs,
 passerelle) à partir de prix réels du marché tunisien.
 
-Les prix ont été relevés le **27/11/2026** sur les pages produits de deux boutiques :
+Les prix ont été relevés en **novembre 2026** sur les pages produits de deux boutiques :
 **Didactico** (didactico.tn, Sfax) et **Electronic Shop** (es-online.tn). Le classeur Excel joint
 détaille chaque composant : quantité, prix unitaire, total calculé par formule, boutique, lien et
-date du relevé.
+période du relevé.
 
 ## 1. Synthèse
 
@@ -21,14 +21,14 @@ ni l'installation électrique, à chiffrer avec un électricien.
 
 ## 2. Disponibilité des composants
 
-| Composant | Situation au 27/11/2026 | Choix retenu |
+| Composant | Situation au moment du relevé | Choix retenu |
 | --- | --- | --- |
 | PMS5003 | Non disponible en Tunisie (Didactico, Electronic Shop, seli.tn, Celectronix) | Importation : environ 23 USD (69 TND) plus 30 % de port et de douane, soit **90 TND**. Équivalent local moins précis : DSM501A à 31,350 TND, sans sortie numérique UART |
 | IRLZ44N | Non disponible | **IRL540N**, à commande logique, 4,500 TND, en rupture de stock au relevé. L'IRF520 disponible ne convient pas : il exige 10 V sur la grille |
 | Ventilateur 80 mm 12 V | Non disponible (80 mm seulement en 24 V ou 230 V) | Ventilateur **60 mm 12 V**, 14,000 TND, sur commande |
 
-Les prix Didactico relevés comprennent une remise de 5 % valable du 27 au 29/11/2026. Hors
-remise, le prototype complet coûterait environ 6 TND de plus.
+Les prix Didactico relevés comprennent une remise temporaire de 5 %. Hors remise, le prototype
+complet coûterait environ 6 TND de plus.
 
 ## 3. Rentabilité énergétique (ordre de grandeur)
 
