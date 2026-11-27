@@ -13,7 +13,8 @@ Google Drive de l'équipe (lien ci-dessous).
 | Schéma de câblage | `docs/schema/schema-cablage.md` (+ PNG et SVG) | Terminé |
 | Plateforme IoT et tableau de bord | ThingsBoard Cloud : `docs/guide-thingsboard.md`, sauvegarde `docs/thingsboard/tableau-de-bord-airwatt.json` | Terminé, validé en direct |
 | Estimation de prix | `docs/prix/estimation-prix.md` et `docs/prix/estimation-prix.xlsx` | Terminé (prix relevés le 27/11/2026) |
-| Pitch et démo | Drive : `05 — Démo` (vidéo), `06 — Pitch` (diapositives) | Vidéo prête ; diapositives en cours |
+| Pitch et démo | Drive : `05 — Démo` (vidéo), `06 — Pitch` (diapositives) | Vidéo et diapositives prêtes |
+| Rapport final | Drive : `02 — Rapport` (PDF et Word) | Terminé |
 
 ## Jalons (section 5)
 

@@ -52,7 +52,8 @@ indépendants (compiler : `pio run`, téléverser : `pio run -t upload`).
       avec alarme Critique
 - [x] A5a. Schéma de câblage du montage complet (`docs/schema/`)
 - [x] A5b. Estimation de prix sourcée (`docs/prix/estimation-prix.xlsx`)
-- [ ] A5c. Rapport et pitch du Demo Day
+- [x] A5c. Rapport final et pitch du Demo Day (13 diapositives) — sur le Drive, dossiers
+      `02 - Rapport` et `06 - Pitch`
 
 ### Phase B — prototype réel
 
