@@ -19,14 +19,14 @@ Jumeau Wokwi (ESP32 + PMS5003 simulé) --Wi-Fi/MQTT--> ThingsBoard
 
 ## Structure du dossier
 
-| Dossier | Contenu | Responsable |
-| --- | --- | --- |
-| `node/` | Firmware du nœud capteur (capteurs, ventilateur, serveur BLE) | Membre 2 |
-| `gateway/` | Firmware de la passerelle ESP32 (client BLE ; MQTT à ajouter) | Membre 3 |
-| `gateway_pc/` | Passerelle sur PC en Python (BLE -> ThingsBoard), si une seule ESP32 | Membre 3 |
-| `wokwi/` | Jumeau numérique Wokwi, avec un PMS5003 simulé | Membre 4 |
-| `common/` | Code partagé : protocole BLE, lecture du PMS5003 | Membres 2 et 3 |
-| `docs/` | Contrat de données, guide ThingsBoard, schéma, prix, rapport, pitch | Tous |
+| Dossier | Contenu |
+| --- | --- |
+| `node/` | Firmware du nœud capteur (capteurs, ventilateur, serveur BLE) |
+| `gateway/` | Firmware de la passerelle ESP32 (client BLE ; MQTT à ajouter) |
+| `gateway_pc/` | Passerelle sur PC en Python (BLE -> ThingsBoard), si une seule ESP32 |
+| `wokwi/` | Jumeau numérique Wokwi, avec un PMS5003 simulé |
+| `common/` | Code partagé : protocole BLE, lecture du PMS5003 |
+| `docs/` | Contrat de données, guide ThingsBoard, schéma, prix, preuve du jalon BLE, logo |
 
 Outils : VS Code + extension PlatformIO. `node/` et `gateway/` sont deux projets PlatformIO
 indépendants (compiler : `pio run`, téléverser : `pio run -t upload`).
@@ -62,8 +62,8 @@ BLE réel sur la carte, capteurs simulés dans la carte, bouton BOOT = pic de po
 intégrée = vitesse du ventilateur et alerte, PC = passerelle BLE -> ThingsBoard.
 
 - [x] B1. Nœud « carte seule » (BLE, bouton BOOT, LED intégrée) et « montage complet »
-      (PMS5003 + BME280) — compilés, **à tester sur la carte**
-- [x] B2. Passerelle PC en Python — testée hors ligne, **à tester avec la carte**
+      (PMS5003 + BME280) — compilés ; « carte seule » validé sur l'ESP32
+- [x] B2. Passerelle PC en Python — validée avec la carte (voir B4)
 - [x] B3. Jalon noté : BLE configuré et communicant — validé le 27/11/2026 depuis le PC et
       avec nRF Connect sur téléphone (`docs/preuve-jalon-ble.md`)
 - [x] B4. Chaîne réelle nœud -> BLE -> PC -> ThingsBoard — validée le 27/11/2026 :

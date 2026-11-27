@@ -1,17 +1,17 @@
-# Preuve du jalon « Technologie configurée et communicante » — BLE
+# Preuve du jalon « Technologie configurée et communicante » (BLE)
 
-Jalon noté du cahier des charges (chapitre 3) : la technologie tirée au sort (**BLE**) est
+Jalon noté du cahier des charges (chapitre 3) : la technologie attribuée à l'équipe (**BLE**) est
 configurée et communique avec le microcontrôleur. Validé le **27/11/2026** sur matériel réel.
 
 | Élément | Valeur |
 | --- | --- |
 | Carte | ESP32 DevKit, puce **ESP32-D0WD-V3** (révision 3.1), Wi-Fi + Bluetooth |
 | Firmware | `node/` (configuration `carte_seule`, NimBLE-Arduino 2.x) |
-| Nom BLE annoncé | `AirWatt-Node` — adresse `08:A6:F7:22:72:86` |
+| Nom BLE annoncé | `AirWatt-Node`, adresse `08:A6:F7:22:72:86` |
 | Type | **LE only** (Bluetooth Low Energy ; Bluetooth classique BR/EDR non supporté) |
 | Service GATT | `6e7a0001-3c1b-4a5e-9d2f-a1b2c3d4e5f6` |
-| Mesures | `6e7a0002-…` — READ, NOTIFY toutes les 2 s, paquet de 12 octets |
-| Commandes | `6e7a0003-…` — WRITE, 3 octets |
+| Mesures | `6e7a0002-…` : READ, NOTIFY toutes les 2 s, paquet de 12 octets |
+| Commandes | `6e7a0003-…` : WRITE, 3 octets |
 
 ## 1. Vérification avec un téléphone (nRF Connect)
 
@@ -19,12 +19,12 @@ Captures dans le dossier Drive `05 - Demo / Preuves jalon BLE` :
 
 | Capture | Ce qu'elle montre |
 | --- | --- |
-| 1 — Scan | `AirWatt-Node`, « LE only », drapeaux « LE General Discoverable, BR/EDR Not Supported », UUID 128 bits du service AirWatt |
-| 2 — Connexion | État « CONNECTED », service `6e7a0001-…` découvert |
-| 3 — Caractéristiques | `6e7a0002` (NOTIFY, READ) et `6e7a0003` (WRITE) ; lecture d'un paquet de 12 octets |
-| 4a à 4d — Notifications | « Notifications enabled » ; valeurs reçues en direct pendant un pic de pollution déclenché par le bouton BOOT |
+| 1. Scan | `AirWatt-Node`, « LE only », drapeaux « LE General Discoverable, BR/EDR Not Supported », UUID 128 bits du service AirWatt |
+| 2. Connexion | État « CONNECTED », service `6e7a0001-…` découvert |
+| 3. Caractéristiques | `6e7a0002` (NOTIFY, READ) et `6e7a0003` (WRITE) ; lecture d'un paquet de 12 octets |
+| 4a à 4d. Notifications | « Notifications enabled » ; valeurs reçues en direct pendant un pic de pollution déclenché par le bouton BOOT |
 
-Décodage des notifications reçues (format défini dans `docs/contrat-donnees-ble.md`,
+Décodage des notifications reçues (format défini dans le contrat de données du projet,
 petit-boutiste) :
 
 | Paquet n° | Octets reçus | PM2.5 | PM10 | Temp. | Hum. | Ventilateur | Air |

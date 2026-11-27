@@ -109,9 +109,9 @@ def rail(x, y, net):
 add(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
     f'font-family="Segoe UI, Roboto, Arial, sans-serif">')
 add(f'<rect width="{W}" height="{H}" fill="white"/>')
-text(30, 44, "AirWatt — Schéma de câblage du nœud capteur (montage complet)", 26, weight="bold", color="#0d47a1")
-text(30, 70, "Projet IoT SETP · technologie imposée : BLE · deux points portant la même étiquette "
-     "(+12V, +5V, GPIO25…) sont reliés · masse (GND) commune à tous les éléments", 14, color="#455a64")
+text(30, 44, "AirWatt : schéma de câblage du nœud capteur (montage complet)", 26, weight="bold", color="#0d47a1")
+text(30, 70, "Communication BLE. Les points portant la même étiquette (+12V, +5V, GPIO25…) sont reliés ; "
+     "masse (GND) commune à tous les éléments.", 14, color="#455a64")
 
 # ---- Alimentation --------------------------------------------------------------
 section(30, 95, 370, 470, "1. Alimentation")
@@ -173,7 +173,7 @@ for i, s in enumerate(["Radio Bluetooth Low Energy 2,4 GHz de l'ESP32-WROOM-32,"
                         "antenne gravée sur le circuit : aucun module externe à câbler.",
                         "Service GATT « AirWatt » : mesures (NOTIFY, 12 octets / 2 s)",
                         "et commandes (WRITE, 3 octets) vers la passerelle,",
-                        "puis Wi-Fi / MQTT vers ThingsBoard (second saut libre).",
+                        "relayées en Wi-Fi / MQTT vers ThingsBoard par la passerelle.",
                         "Garder l'antenne loin du métal et du ventilateur."]):
     text(690, 802 + i * 21, s, 13, "middle", color="#1b5e20")
 add('<rect x="470" y="960" width="440" height="170" rx="8" fill="#fff8e1" stroke="#f9a825" stroke-width="2"/>')
@@ -278,7 +278,7 @@ for i, (lab, c) in enumerate([("+12 V", C12), ("+5 V", C5), ("+3,3 V", C33), ("M
     x = 30 + i * 170
     line(x, y0 - 5, x + 30, y0 - 5, c, 4)
     text(x + 38, y0, lab, 13)
-text(1570, y0, "AirWatt · v1.0 · 27/11/2026", 13, "end", color="#757575")
+text(1570, y0, "AirWatt, 3 SETP, ENSTAB | Révision 1.0 du 27/11/2026", 13, "end", color="#757575")
 add("</svg>")
 
 Path(__file__).with_name("schema-cablage.svg").write_text("\n".join(out), encoding="utf-8")

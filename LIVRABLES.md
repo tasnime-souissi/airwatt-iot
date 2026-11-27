@@ -15,6 +15,7 @@ Google Drive de l'équipe (lien ci-dessous).
 | Estimation de prix | `docs/prix/estimation-prix.md` et `docs/prix/estimation-prix.xlsx` | Terminé (prix relevés le 27/11/2026) |
 | Pitch et démo | Drive : `05 — Démo` (vidéo), `06 — Pitch` (diapositives) | Vidéo et diapositives prêtes |
 | Rapport final | Drive : `02 — Rapport` (PDF et Word) | Terminé |
+| Logo du projet | `docs/logo/` ; Drive : `07 - Logo` | Terminé |
 
 ## Jalons (section 5)
 

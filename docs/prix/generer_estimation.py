@@ -28,7 +28,7 @@ PROTOTYPE = [
     ("U1", "esp32", 1), ("U2", "pms5003", 1), ("U3", "bme280", 1), ("Q2", "mosfet", 1), ("D1", "diode", 1),
     ("M1", "ventilateur", 1), ("PS1", "adaptateur12v", 1), ("U4", "lm2596", 1), ("LED1", "led_rgb", 1),
     ("BZ1", "buzzer", 1), ("Q1", "transistor", 1), ("R1-R6", "resistances", 1), ("C1", "condensateur", 1),
-    ("—", "plaque_fils", 1), ("—", "boitier", 1),
+    ("", "plaque_fils", 1), ("", "boitier", 1),
 ]
 
 # Déploiement dans un atelier de 3 zones (mélange, vulcanisation, meulage)
@@ -45,7 +45,7 @@ bord = Border(left=fin, right=fin, top=fin, bottom=fin)
 
 def feuille(wb, titre, lignes, intro):
     ws = wb.create_sheet(titre)
-    ws["A1"] = f"AirWatt — Estimation de prix : {titre.lower()}"
+    ws["A1"] = f"AirWatt : estimation de prix ({titre.lower()})"
     ws["A1"].font = Font(size=14, bold=True, color=BLEU)
     ws["A2"] = intro
     ws["A2"].font = Font(italic=True, color="455A64")
@@ -85,10 +85,15 @@ def feuille(wb, titre, lignes, intro):
 
 wb = Workbook()
 wb.remove(wb.active)
+wb.properties.creator = "Équipe AirWatt (3 SETP, ENSTAB)"
+wb.properties.lastModifiedBy = "Équipe AirWatt (3 SETP, ENSTAB)"
+wb.properties.title = "Estimation de prix du système AirWatt"
 feuille(wb, "Prototype", PROTOTYPE,
-        "Montage complet d'un nœud (schéma docs/schema). Passerelle : le PC de l'équipe (0 TND).")
+        "Montage complet d'un nœud, conforme au schéma de câblage. La passerelle est un ordinateur "
+        "portable déjà disponible (0 TND). Prix relevés le 27/11/2026.")
 feuille(wb, "Déploiement atelier", DEPLOIEMENT,
-        "3 nœuds (mélange, vulcanisation, meulage) + 1 passerelle ESP32. Hors variateur et installation.")
+        "3 nœuds (zones de mélange, de vulcanisation et de meulage) et 1 passerelle ESP32. "
+        "Variateur de l'extracteur et installation électrique non compris.")
 sortie = Path(__file__).with_name("estimation-prix.xlsx")
 wb.save(sortie)
 print(f"{sortie.name} généré ({len(PRIX)} prix renseignés)")
