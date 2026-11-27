@@ -1,0 +1,314 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1180" viewBox="0 0 1600 1180" font-family="Segoe UI, Roboto, Arial, sans-serif">
+<rect width="1600" height="1180" fill="white"/>
+<text x="30" y="44" font-size="26" text-anchor="start" font-weight="bold" font-style="normal" fill="#0d47a1">AirWatt — Schéma de câblage du nœud capteur (montage complet)</text>
+<text x="30" y="70" font-size="14" text-anchor="start" font-weight="normal" font-style="normal" fill="#455a64">Projet IoT SETP · technologie imposée : BLE · deux points portant la même étiquette (+12V, +5V, GPIO25…) sont reliés · masse (GND) commune à tous les éléments</text>
+<rect x="30" y="95" width="370" height="470" rx="10" fill="#fafafa" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="44" y="121" font-size="17" text-anchor="start" font-weight="bold" font-style="normal" fill="#37474f">1. Alimentation</text>
+<rect x="60" y="140" width="150" height="90" rx="6" fill="#e3f2fd" stroke="#0d47a1" stroke-width="2"/>
+<text x="135.0" y="164" font-size="16" text-anchor="middle" font-weight="bold" font-style="normal" fill="#0d47a1">Adaptateur</text>
+<text x="135.0" y="182" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#455a64">secteur → 12 V / 2 A</text>
+<line x1="210" y1="180" x2="265" y2="180" stroke="#c62828" stroke-width="2"/>
+<text x="202" y="185" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">+</text>
+<polygon points="265,180 275,169 319,169 319,191 275,191" fill="white" stroke="#c62828" stroke-width="2"/>
+<text x="297.0" y="185" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#c62828">+12V</text>
+<line x1="210" y1="205" x2="265" y2="205" stroke="#212121" stroke-width="2"/>
+<text x="202" y="210" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">−</text>
+<polygon points="265,205 275,194 310,194 310,216 275,216" fill="white" stroke="#212121" stroke-width="2"/>
+<text x="292.5" y="210" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#212121">GND</text>
+<rect x="130" y="270" width="140" height="160" rx="6" fill="#e3f2fd" stroke="#0d47a1" stroke-width="2"/>
+<text x="200.0" y="294" font-size="16" text-anchor="middle" font-weight="bold" font-style="normal" fill="#0d47a1">LM2596</text>
+<text x="200.0" y="312" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#455a64">abaisseur DC-DC</text>
+<line x1="130" y1="345" x2="105" y2="345" stroke="#c62828" stroke-width="2"/>
+<text x="138" y="350" font-size="13" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">IN+</text>
+<polygon points="105,345 95,334 51,334 51,356 95,356" fill="white" stroke="#c62828" stroke-width="2"/>
+<text x="73.0" y="350" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#c62828">+12V</text>
+<line x1="130" y1="395" x2="105" y2="395" stroke="#212121" stroke-width="2"/>
+<text x="138" y="400" font-size="13" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">IN−</text>
+<polygon points="105,395 95,384 60,384 60,406 95,406" fill="white" stroke="#212121" stroke-width="2"/>
+<text x="77.5" y="400" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#212121">GND</text>
+<line x1="270" y1="345" x2="305" y2="345" stroke="#e65100" stroke-width="2"/>
+<text x="262" y="350" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">OUT+</text>
+<polygon points="305,345 315,334 350,334 350,356 315,356" fill="white" stroke="#e65100" stroke-width="2"/>
+<text x="332.5" y="350" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#e65100">+5V</text>
+<line x1="270" y1="395" x2="305" y2="395" stroke="#212121" stroke-width="2"/>
+<text x="262" y="400" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">OUT−</text>
+<polygon points="305,395 315,384 350,384 350,406 315,406" fill="white" stroke="#212121" stroke-width="2"/>
+<text x="332.5" y="400" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#212121">GND</text>
+<text x="200" y="452" font-size="12" text-anchor="middle" font-weight="normal" font-style="italic" fill="#455a64">Sortie réglée à 5,0 V</text>
+<text x="200" y="468" font-size="12" text-anchor="middle" font-weight="normal" font-style="italic" fill="#455a64">(potentiomètre, au multimètre</text>
+<text x="200" y="484" font-size="12" text-anchor="middle" font-weight="normal" font-style="italic" fill="#455a64">avant de brancher l'ESP32)</text>
+<line x1="304" y1="470" x2="336" y2="470" stroke="#e65100" stroke-width="3"/>
+<text x="320" y="462" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#e65100">+5V</text>
+<line x1="320" y1="470" x2="320" y2="500" stroke="#e65100" stroke-width="2"/>
+<line x1="304" y1="500" x2="336" y2="500" stroke="#212121" stroke-width="3"/>
+<path d="M304 510 Q320 500 336 510" fill="none" stroke="#212121" stroke-width="3"/>
+<line x1="320" y1="508" x2="320" y2="530" stroke="#212121" stroke-width="2"/>
+<line x1="320" y1="530" x2="320" y2="540" stroke="#212121" stroke-width="2"/>
+<line x1="306" y1="540" x2="334" y2="540" stroke="#212121" stroke-width="2"/>
+<line x1="311" y1="545" x2="329" y2="545" stroke="#212121" stroke-width="2"/>
+<line x1="316" y1="550" x2="324" y2="550" stroke="#212121" stroke-width="2"/>
+<text x="345" y="500" font-size="12" text-anchor="start" font-weight="bold" font-style="normal" fill="#212121">C1</text>
+<text x="345" y="516" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">470 µF / 25 V</text>
+<rect x="30" y="590" width="370" height="560" rx="10" fill="#fafafa" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="44" y="616" font-size="17" text-anchor="start" font-weight="bold" font-style="normal" fill="#37474f">2. Capteurs</text>
+<rect x="60" y="630" width="150" height="245" rx="6" fill="#e3f2fd" stroke="#0d47a1" stroke-width="2"/>
+<text x="135.0" y="654" font-size="16" text-anchor="middle" font-weight="bold" font-style="normal" fill="#0d47a1">PMS5003</text>
+<text x="135.0" y="672" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#455a64">particules (UART)</text>
+<line x1="210" y1="700" x2="265" y2="700" stroke="#e65100" stroke-width="2"/>
+<text x="202" y="705" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">1 VCC</text>
+<polygon points="265,700 275,689 310,689 310,711 275,711" fill="white" stroke="#e65100" stroke-width="2"/>
+<text x="292.5" y="705" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#e65100">+5V</text>
+<line x1="210" y1="730" x2="265" y2="730" stroke="#212121" stroke-width="2"/>
+<text x="202" y="735" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">2 GND</text>
+<polygon points="265,730 275,719 310,719 310,741 275,741" fill="white" stroke="#212121" stroke-width="2"/>
+<text x="292.5" y="735" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#212121">GND</text>
+<line x1="210" y1="760" x2="265" y2="760" stroke="#757575" stroke-width="2"/>
+<text x="202" y="765" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">3 SET</text>
+<text x="271" y="765" font-size="12" text-anchor="start" font-weight="normal" font-style="italic" fill="#757575">non connecté</text>
+<line x1="210" y1="790" x2="265" y2="790" stroke="#1565c0" stroke-width="2"/>
+<text x="202" y="795" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">4 RX</text>
+<polygon points="265,790 275,779 337,779 337,801 275,801" fill="white" stroke="#1565c0" stroke-width="2"/>
+<text x="306.0" y="795" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1565c0">GPIO17</text>
+<line x1="210" y1="820" x2="265" y2="820" stroke="#1565c0" stroke-width="2"/>
+<text x="202" y="825" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">5 TX</text>
+<polygon points="265,820 275,809 337,809 337,831 275,831" fill="white" stroke="#1565c0" stroke-width="2"/>
+<text x="306.0" y="825" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1565c0">GPIO16</text>
+<line x1="210" y1="850" x2="265" y2="850" stroke="#757575" stroke-width="2"/>
+<text x="202" y="855" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">6 RESET</text>
+<text x="271" y="855" font-size="12" text-anchor="start" font-weight="normal" font-style="italic" fill="#757575">non connecté</text>
+<text x="135" y="895" font-size="12" text-anchor="middle" font-weight="normal" font-style="italic" fill="#455a64">Alimentation 5 V, logique 3,3 V</text>
+<text x="135" y="911" font-size="12" text-anchor="middle" font-weight="normal" font-style="italic" fill="#455a64">(compatible ESP32, sans adaptateur)</text>
+<rect x="60" y="935" width="150" height="180" rx="6" fill="#e3f2fd" stroke="#0d47a1" stroke-width="2"/>
+<text x="135.0" y="959" font-size="16" text-anchor="middle" font-weight="bold" font-style="normal" fill="#0d47a1">BME280</text>
+<text x="135.0" y="977" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#455a64">temp. / humidité (I2C)</text>
+<line x1="210" y1="1000" x2="265" y2="1000" stroke="#b8860b" stroke-width="2"/>
+<text x="202" y="1005" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">VIN</text>
+<polygon points="265,1000 275,989 319,989 319,1011 275,1011" fill="white" stroke="#b8860b" stroke-width="2"/>
+<text x="297.0" y="1005" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#b8860b">+3V3</text>
+<line x1="210" y1="1030" x2="265" y2="1030" stroke="#212121" stroke-width="2"/>
+<text x="202" y="1035" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">GND</text>
+<polygon points="265,1030 275,1019 310,1019 310,1041 275,1041" fill="white" stroke="#212121" stroke-width="2"/>
+<text x="292.5" y="1035" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#212121">GND</text>
+<line x1="210" y1="1060" x2="265" y2="1060" stroke="#1565c0" stroke-width="2"/>
+<text x="202" y="1065" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">SCL</text>
+<polygon points="265,1060 275,1049 337,1049 337,1071 275,1071" fill="white" stroke="#1565c0" stroke-width="2"/>
+<text x="306.0" y="1065" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1565c0">GPIO22</text>
+<line x1="210" y1="1090" x2="265" y2="1090" stroke="#1565c0" stroke-width="2"/>
+<text x="202" y="1095" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">SDA</text>
+<polygon points="265,1090 275,1079 337,1079 337,1101 275,1101" fill="white" stroke="#1565c0" stroke-width="2"/>
+<text x="306.0" y="1095" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1565c0">GPIO21</text>
+<text x="135" y="1137" font-size="12" text-anchor="middle" font-weight="normal" font-style="italic" fill="#455a64">Adresse I2C 0x76 (ou 0x77)</text>
+<rect x="430" y="95" width="520" height="1055" rx="10" fill="#fafafa" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="444" y="121" font-size="17" text-anchor="start" font-weight="bold" font-style="normal" fill="#37474f">3. Microcontrôleur et communication</text>
+<rect x="600" y="150" width="190" height="560" rx="6" fill="#e3f2fd" stroke="#0d47a1" stroke-width="2"/>
+<text x="695.0" y="174" font-size="16" text-anchor="middle" font-weight="bold" font-style="normal" fill="#0d47a1">ESP32 DevKit V1</text>
+<text x="695.0" y="192" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#455a64">ESP32-WROOM-32</text>
+<line x1="600" y1="220" x2="545" y2="220" stroke="#e65100" stroke-width="2"/>
+<text x="608" y="225" font-size="13" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">VIN</text>
+<polygon points="545,220 535,209 500,209 500,231 535,231" fill="white" stroke="#e65100" stroke-width="2"/>
+<text x="517.5" y="225" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#e65100">+5V</text>
+<line x1="600" y1="275" x2="545" y2="275" stroke="#212121" stroke-width="2"/>
+<text x="608" y="280" font-size="13" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">GND</text>
+<polygon points="545,275 535,264 500,264 500,286 535,286" fill="white" stroke="#212121" stroke-width="2"/>
+<text x="517.5" y="280" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#212121">GND</text>
+<line x1="600" y1="330" x2="545" y2="330" stroke="#b8860b" stroke-width="2"/>
+<text x="608" y="335" font-size="13" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">3V3</text>
+<polygon points="545,330 535,319 491,319 491,341 535,341" fill="white" stroke="#b8860b" stroke-width="2"/>
+<text x="513.0" y="335" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#b8860b">+3V3</text>
+<line x1="600" y1="385" x2="545" y2="385" stroke="#1565c0" stroke-width="2"/>
+<text x="608" y="390" font-size="13" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">GPIO16 (RX2)</text>
+<polygon points="545,385 535,374 473,374 473,396 535,396" fill="white" stroke="#1565c0" stroke-width="2"/>
+<text x="504.0" y="390" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1565c0">GPIO16</text>
+<line x1="600" y1="440" x2="545" y2="440" stroke="#1565c0" stroke-width="2"/>
+<text x="608" y="445" font-size="13" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">GPIO17 (TX2)</text>
+<polygon points="545,440 535,429 473,429 473,451 535,451" fill="white" stroke="#1565c0" stroke-width="2"/>
+<text x="504.0" y="445" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1565c0">GPIO17</text>
+<line x1="600" y1="495" x2="545" y2="495" stroke="#1565c0" stroke-width="2"/>
+<text x="608" y="500" font-size="13" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">GPIO21 (SDA)</text>
+<polygon points="545,495 535,484 473,484 473,506 535,506" fill="white" stroke="#1565c0" stroke-width="2"/>
+<text x="504.0" y="500" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1565c0">GPIO21</text>
+<line x1="600" y1="550" x2="545" y2="550" stroke="#1565c0" stroke-width="2"/>
+<text x="608" y="555" font-size="13" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">GPIO22 (SCL)</text>
+<polygon points="545,550 535,539 473,539 473,561 535,561" fill="white" stroke="#1565c0" stroke-width="2"/>
+<text x="504.0" y="555" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1565c0">GPIO22</text>
+<line x1="790" y1="220" x2="845" y2="220" stroke="#1565c0" stroke-width="2"/>
+<text x="782" y="225" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">GPIO25</text>
+<polygon points="845,220 855,209 917,209 917,231 855,231" fill="white" stroke="#1565c0" stroke-width="2"/>
+<text x="886.0" y="225" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1565c0">GPIO25</text>
+<line x1="790" y1="275" x2="845" y2="275" stroke="#1565c0" stroke-width="2"/>
+<text x="782" y="280" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">GPIO26</text>
+<polygon points="845,275 855,264 917,264 917,286 855,286" fill="white" stroke="#1565c0" stroke-width="2"/>
+<text x="886.0" y="280" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1565c0">GPIO26</text>
+<line x1="790" y1="330" x2="845" y2="330" stroke="#1565c0" stroke-width="2"/>
+<text x="782" y="335" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">GPIO27</text>
+<polygon points="845,330 855,319 917,319 917,341 855,341" fill="white" stroke="#1565c0" stroke-width="2"/>
+<text x="886.0" y="335" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1565c0">GPIO27</text>
+<line x1="790" y1="385" x2="845" y2="385" stroke="#1565c0" stroke-width="2"/>
+<text x="782" y="390" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">GPIO32</text>
+<polygon points="845,385 855,374 917,374 917,396 855,396" fill="white" stroke="#1565c0" stroke-width="2"/>
+<text x="886.0" y="390" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1565c0">GPIO32</text>
+<line x1="790" y1="440" x2="845" y2="440" stroke="#1565c0" stroke-width="2"/>
+<text x="782" y="445" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">GPIO33</text>
+<polygon points="845,440 855,429 917,429 917,451 855,451" fill="white" stroke="#1565c0" stroke-width="2"/>
+<text x="886.0" y="445" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1565c0">GPIO33</text>
+<line x1="615" y1="600" x2="775" y2="600" stroke="#90caf9" stroke-width="1"/>
+<text x="695" y="625" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#37474f">Sur la carte :</text>
+<text x="695" y="645" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#37474f">GPIO2 = LED intégrée</text>
+<text x="695" y="663" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#37474f">GPIO0 = bouton BOOT</text>
+<text x="695" y="681" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#37474f">micro-USB = programmation</text>
+<rect x="470" y="745" width="440" height="190" rx="8" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+<text x="690" y="775" font-size="16" text-anchor="middle" font-weight="bold" font-style="normal" fill="#2e7d32">Module de communication : BLE intégré</text>
+<text x="690" y="802" font-size="13" text-anchor="middle" font-weight="normal" font-style="normal" fill="#1b5e20">Radio Bluetooth Low Energy 2,4 GHz de l'ESP32-WROOM-32,</text>
+<text x="690" y="823" font-size="13" text-anchor="middle" font-weight="normal" font-style="normal" fill="#1b5e20">antenne gravée sur le circuit : aucun module externe à câbler.</text>
+<text x="690" y="844" font-size="13" text-anchor="middle" font-weight="normal" font-style="normal" fill="#1b5e20">Service GATT « AirWatt » : mesures (NOTIFY, 12 octets / 2 s)</text>
+<text x="690" y="865" font-size="13" text-anchor="middle" font-weight="normal" font-style="normal" fill="#1b5e20">et commandes (WRITE, 3 octets) vers la passerelle,</text>
+<text x="690" y="886" font-size="13" text-anchor="middle" font-weight="normal" font-style="normal" fill="#1b5e20">puis Wi-Fi / MQTT vers ThingsBoard (second saut libre).</text>
+<text x="690" y="907" font-size="13" text-anchor="middle" font-weight="normal" font-style="normal" fill="#1b5e20">Garder l'antenne loin du métal et du ventilateur.</text>
+<rect x="470" y="960" width="440" height="170" rx="8" fill="#fff8e1" stroke="#f9a825" stroke-width="2"/>
+<text x="690" y="990" font-size="16" text-anchor="middle" font-weight="bold" font-style="normal" fill="#8d6e00">Règles de câblage</text>
+<text x="690" y="1017" font-size="13" text-anchor="middle" font-weight="normal" font-style="normal" fill="#5d4037">Masse commune : GND de l'alimentation, du LM2596, de l'ESP32,</text>
+<text x="690" y="1038" font-size="13" text-anchor="middle" font-weight="normal" font-style="normal" fill="#5d4037">des capteurs et du MOSFET reliés ensemble.</text>
+<text x="690" y="1059" font-size="13" text-anchor="middle" font-weight="normal" font-style="normal" fill="#5d4037">Ne jamais relier le +12 V à une broche de l'ESP32.</text>
+<text x="690" y="1080" font-size="13" text-anchor="middle" font-weight="normal" font-style="normal" fill="#5d4037">Courant max par broche GPIO : 20 mA (d'où Q1 pour le buzzer).</text>
+<text x="690" y="1101" font-size="13" text-anchor="middle" font-weight="normal" font-style="normal" fill="#5d4037">Fils I2C et UART courts (&lt; 30 cm).</text>
+<rect x="980" y="95" width="590" height="470" rx="10" fill="#fafafa" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="994" y="121" font-size="17" text-anchor="start" font-weight="bold" font-style="normal" fill="#37474f">4. Ventilation (actionneur)</text>
+<line x1="1234" y1="150" x2="1266" y2="150" stroke="#c62828" stroke-width="3"/>
+<text x="1250" y="142" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#c62828">+12V</text>
+<line x1="1250" y1="150" x2="1250" y2="200" stroke="#c62828" stroke-width="2"/>
+<circle cx="1250" cy="200" r="4" fill="#c62828"/>
+<line x1="1250" y1="200" x2="1250" y2="235" stroke="#c62828" stroke-width="2"/>
+<circle cx="1250" cy="270" r="35" fill="white" stroke="#212121" stroke-width="2"/>
+<text x="1250" y="278" font-size="24" text-anchor="middle" font-weight="bold" font-style="normal" fill="#212121">M</text>
+<text x="1300" y="262" font-size="13" text-anchor="start" font-weight="bold" font-style="normal" fill="#212121">Ventilateur 12 V</text>
+<text x="1300" y="280" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">60 mm, 0,1 à 0,15 A</text>
+<line x1="1250" y1="305" x2="1250" y2="340" stroke="#212121" stroke-width="2"/>
+<circle cx="1250" cy="340" r="4" fill="#212121"/>
+<line x1="1250" y1="200" x2="1150" y2="200" stroke="#c62828" stroke-width="2"/>
+<line x1="1150" y1="200" x2="1150" y2="245" stroke="#c62828" stroke-width="2"/>
+<polygon points="1136,290 1164,290 1150,262" fill="white" stroke="#212121" stroke-width="2"/>
+<line x1="1136" y1="262" x2="1164" y2="262" stroke="#212121" stroke-width="3"/>
+<line x1="1150" y1="245" x2="1150" y2="262" stroke="#212121" stroke-width="2"/>
+<line x1="1150" y1="290" x2="1150" y2="340" stroke="#212121" stroke-width="2"/>
+<line x1="1150" y1="340" x2="1250" y2="340" stroke="#212121" stroke-width="2"/>
+<text x="1126" y="270" font-size="12" text-anchor="end" font-weight="bold" font-style="normal" fill="#212121">D1</text>
+<text x="1126" y="286" font-size="12" text-anchor="end" font-weight="normal" font-style="normal" fill="#212121">1N4007</text>
+<text x="1126" y="302" font-size="12" text-anchor="end" font-weight="normal" font-style="italic" fill="#455a64">roue libre</text>
+<line x1="1250" y1="340" x2="1250" y2="380" stroke="#212121" stroke-width="2"/>
+<rect x="1200" y="380" width="100" height="90" rx="6" fill="#e3f2fd" stroke="#0d47a1" stroke-width="2"/>
+<text x="1250.0" y="404" font-size="16" text-anchor="middle" font-weight="bold" font-style="normal" fill="#0d47a1">Q2</text>
+<text x="1250.0" y="422" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#455a64">IRL540N</text>
+<text x="1250" y="456" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#455a64">MOSFET N</text>
+<text x="1260" y="378" font-size="12" text-anchor="start" font-weight="bold" font-style="normal" fill="#212121">D</text>
+<line x1="1250" y1="470" x2="1250" y2="500" stroke="#212121" stroke-width="2"/>
+<text x="1260" y="492" font-size="12" text-anchor="start" font-weight="bold" font-style="normal" fill="#212121">S</text>
+<line x1="1250" y1="500" x2="1250" y2="510" stroke="#212121" stroke-width="2"/>
+<line x1="1236" y1="510" x2="1264" y2="510" stroke="#212121" stroke-width="2"/>
+<line x1="1241" y1="515" x2="1259" y2="515" stroke="#212121" stroke-width="2"/>
+<line x1="1246" y1="520" x2="1254" y2="520" stroke="#212121" stroke-width="2"/>
+<line x1="1200" y1="425" x2="1130" y2="425" stroke="#212121" stroke-width="2"/>
+<text x="1188" y="418" font-size="12" text-anchor="end" font-weight="bold" font-style="normal" fill="#212121">G</text>
+<circle cx="1130" cy="425" r="4" fill="#212121"/>
+<line x1="1060" y1="425" x2="1075" y2="425" stroke="#212121" stroke-width="2"/>
+<rect x="1075" y="417" width="40" height="16" fill="white" stroke="#212121" stroke-width="2"/>
+<line x1="1115" y1="425" x2="1130" y2="425" stroke="#212121" stroke-width="2"/>
+<text x="1095" y="411" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#212121">R1 220 Ω</text>
+<polygon points="1060,425 1050,414 988,414 988,436 1050,436" fill="white" stroke="#1565c0" stroke-width="2"/>
+<text x="1019.0" y="430" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1565c0">GPIO25</text>
+<line x1="1130" y1="425" x2="1130" y2="450" stroke="#212121" stroke-width="2"/>
+<line x1="1130" y1="450" x2="1130" y2="465" stroke="#212121" stroke-width="2"/>
+<rect x="1122" y="465" width="16" height="40" fill="white" stroke="#212121" stroke-width="2"/>
+<line x1="1130" y1="505" x2="1130" y2="520" stroke="#212121" stroke-width="2"/>
+<text x="1144" y="490" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">R2 10 kΩ</text>
+<line x1="1130" y1="520" x2="1130" y2="530" stroke="#212121" stroke-width="2"/>
+<line x1="1116" y1="530" x2="1144" y2="530" stroke="#212121" stroke-width="2"/>
+<line x1="1121" y1="535" x2="1139" y2="535" stroke="#212121" stroke-width="2"/>
+<line x1="1126" y1="540" x2="1134" y2="540" stroke="#212121" stroke-width="2"/>
+<text x="1350" y="400" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#455a64">PWM 25 kHz sur la grille :</text>
+<text x="1350" y="418" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#455a64">vitesse du ventilateur 0 à 100 %</text>
+<text x="1350" y="436" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#455a64">R2 bloque Q2 au démarrage</text>
+<text x="1350" y="454" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#455a64">(ventilateur arrêté tant que</text>
+<text x="1350" y="472" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#455a64">l'ESP32 n'a pas démarré)</text>
+<rect x="980" y="590" width="590" height="560" rx="10" fill="#fafafa" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="994" y="616" font-size="17" text-anchor="start" font-weight="bold" font-style="normal" fill="#37474f">5. Signalisation locale</text>
+<text x="1050" y="640" font-size="14" text-anchor="start" font-weight="bold" font-style="normal" fill="#212121">LED RGB à cathode commune</text>
+<polygon points="1080,680 1070,669 1008,669 1008,691 1070,691" fill="white" stroke="#1565c0" stroke-width="2"/>
+<text x="1039.0" y="685" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1565c0">GPIO26</text>
+<line x1="1080" y1="680" x2="1095" y2="680" stroke="#212121" stroke-width="2"/>
+<rect x="1095" y="672" width="40" height="16" fill="white" stroke="#212121" stroke-width="2"/>
+<line x1="1135" y1="680" x2="1150" y2="680" stroke="#212121" stroke-width="2"/>
+<text x="1115" y="666" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#212121">R3 220 Ω</text>
+<line x1="1150" y1="680" x2="1190" y2="680" stroke="#212121" stroke-width="2"/>
+<polygon points="1190,668 1190,692 1214,680" fill="#d32f2f" fill-opacity="0.25" stroke="#d32f2f" stroke-width="2"/>
+<line x1="1214" y1="668" x2="1214" y2="692" stroke="#d32f2f" stroke-width="3"/>
+<text x="1202" y="664" font-size="12" text-anchor="middle" font-weight="bold" font-style="normal" fill="#d32f2f">R</text>
+<line x1="1214" y1="680" x2="1260" y2="680" stroke="#212121" stroke-width="2"/>
+<polygon points="1080,735 1070,724 1008,724 1008,746 1070,746" fill="white" stroke="#1565c0" stroke-width="2"/>
+<text x="1039.0" y="740" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1565c0">GPIO27</text>
+<line x1="1080" y1="735" x2="1095" y2="735" stroke="#212121" stroke-width="2"/>
+<rect x="1095" y="727" width="40" height="16" fill="white" stroke="#212121" stroke-width="2"/>
+<line x1="1135" y1="735" x2="1150" y2="735" stroke="#212121" stroke-width="2"/>
+<text x="1115" y="721" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#212121">R4 100 Ω</text>
+<line x1="1150" y1="735" x2="1190" y2="735" stroke="#212121" stroke-width="2"/>
+<polygon points="1190,723 1190,747 1214,735" fill="#388e3c" fill-opacity="0.25" stroke="#388e3c" stroke-width="2"/>
+<line x1="1214" y1="723" x2="1214" y2="747" stroke="#388e3c" stroke-width="3"/>
+<text x="1202" y="719" font-size="12" text-anchor="middle" font-weight="bold" font-style="normal" fill="#388e3c">G</text>
+<line x1="1214" y1="735" x2="1260" y2="735" stroke="#212121" stroke-width="2"/>
+<polygon points="1080,790 1070,779 1008,779 1008,801 1070,801" fill="white" stroke="#1565c0" stroke-width="2"/>
+<text x="1039.0" y="795" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1565c0">GPIO32</text>
+<line x1="1080" y1="790" x2="1095" y2="790" stroke="#212121" stroke-width="2"/>
+<rect x="1095" y="782" width="40" height="16" fill="white" stroke="#212121" stroke-width="2"/>
+<line x1="1135" y1="790" x2="1150" y2="790" stroke="#212121" stroke-width="2"/>
+<text x="1115" y="776" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#212121">R5 100 Ω</text>
+<line x1="1150" y1="790" x2="1190" y2="790" stroke="#212121" stroke-width="2"/>
+<polygon points="1190,778 1190,802 1214,790" fill="#1976d2" fill-opacity="0.25" stroke="#1976d2" stroke-width="2"/>
+<line x1="1214" y1="778" x2="1214" y2="802" stroke="#1976d2" stroke-width="3"/>
+<text x="1202" y="774" font-size="12" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1976d2">B</text>
+<line x1="1214" y1="790" x2="1260" y2="790" stroke="#212121" stroke-width="2"/>
+<line x1="1260" y1="680" x2="1260" y2="810" stroke="#212121" stroke-width="2"/>
+<circle cx="1260" cy="735" r="4" fill="#212121"/>
+<line x1="1260" y1="810" x2="1260" y2="820" stroke="#212121" stroke-width="2"/>
+<line x1="1246" y1="820" x2="1274" y2="820" stroke="#212121" stroke-width="2"/>
+<line x1="1251" y1="825" x2="1269" y2="825" stroke="#212121" stroke-width="2"/>
+<line x1="1256" y1="830" x2="1264" y2="830" stroke="#212121" stroke-width="2"/>
+<text x="1280" y="740" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#455a64">Vert = bon, orange = moyen (R+G),</text>
+<text x="1280" y="758" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#455a64">rouge = mauvais, bleu = capteur en défaut</text>
+<text x="1050" y="880" font-size="14" text-anchor="start" font-weight="bold" font-style="normal" fill="#212121">Buzzer actif 5 V (via transistor)</text>
+<line x1="1314" y1="900" x2="1346" y2="900" stroke="#e65100" stroke-width="3"/>
+<text x="1330" y="892" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#e65100">+5V</text>
+<line x1="1330" y1="900" x2="1330" y2="925" stroke="#e65100" stroke-width="2"/>
+<rect x="1300" y="925" width="60" height="40" rx="6" fill="white" stroke="#212121" stroke-width="2"/>
+<text x="1330" y="950" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#212121">BZ1</text>
+<text x="1370" y="940" font-size="12" text-anchor="start" font-weight="normal" font-style="normal" fill="#455a64">+ en haut</text>
+<line x1="1330" y1="965" x2="1330" y2="995" stroke="#212121" stroke-width="2"/>
+<rect x="1280" y="995" width="100" height="80" rx="6" fill="#e3f2fd" stroke="#0d47a1" stroke-width="2"/>
+<text x="1330.0" y="1019" font-size="16" text-anchor="middle" font-weight="bold" font-style="normal" fill="#0d47a1">Q1</text>
+<text x="1330.0" y="1037" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#455a64">2N2222</text>
+<text x="1340" y="993" font-size="12" text-anchor="start" font-weight="bold" font-style="normal" fill="#212121">C</text>
+<line x1="1330" y1="1075" x2="1330" y2="1100" stroke="#212121" stroke-width="2"/>
+<text x="1340" y="1092" font-size="12" text-anchor="start" font-weight="bold" font-style="normal" fill="#212121">E</text>
+<line x1="1330" y1="1100" x2="1330" y2="1110" stroke="#212121" stroke-width="2"/>
+<line x1="1316" y1="1110" x2="1344" y2="1110" stroke="#212121" stroke-width="2"/>
+<line x1="1321" y1="1115" x2="1339" y2="1115" stroke="#212121" stroke-width="2"/>
+<line x1="1326" y1="1120" x2="1334" y2="1120" stroke="#212121" stroke-width="2"/>
+<line x1="1280" y1="1035" x2="1200" y2="1035" stroke="#212121" stroke-width="2"/>
+<text x="1272" y="1028" font-size="12" text-anchor="end" font-weight="bold" font-style="normal" fill="#212121">B</text>
+<line x1="1130" y1="1035" x2="1145" y2="1035" stroke="#212121" stroke-width="2"/>
+<rect x="1145" y="1027" width="40" height="16" fill="white" stroke="#212121" stroke-width="2"/>
+<line x1="1185" y1="1035" x2="1200" y2="1035" stroke="#212121" stroke-width="2"/>
+<text x="1165" y="1021" font-size="12" text-anchor="middle" font-weight="normal" font-style="normal" fill="#212121">R6 1 kΩ</text>
+<line x1="1200" y1="1035" x2="1200" y2="1035" stroke="#212121" stroke-width="2"/>
+<polygon points="1130,1035 1120,1024 1058,1024 1058,1046 1120,1046" fill="white" stroke="#1565c0" stroke-width="2"/>
+<text x="1089.0" y="1040" font-size="13" text-anchor="middle" font-weight="bold" font-style="normal" fill="#1565c0">GPIO33</text>
+<line x1="30" y1="1163" x2="60" y2="1163" stroke="#c62828" stroke-width="4"/>
+<text x="68" y="1168" font-size="13" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">+12 V</text>
+<line x1="200" y1="1163" x2="230" y2="1163" stroke="#e65100" stroke-width="4"/>
+<text x="238" y="1168" font-size="13" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">+5 V</text>
+<line x1="370" y1="1163" x2="400" y2="1163" stroke="#b8860b" stroke-width="4"/>
+<text x="408" y="1168" font-size="13" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">+3,3 V</text>
+<line x1="540" y1="1163" x2="570" y2="1163" stroke="#212121" stroke-width="4"/>
+<text x="578" y="1168" font-size="13" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">Masse GND</text>
+<line x1="710" y1="1163" x2="740" y2="1163" stroke="#1565c0" stroke-width="4"/>
+<text x="748" y="1168" font-size="13" text-anchor="start" font-weight="normal" font-style="normal" fill="#212121">Signal GPIO</text>
+<text x="1570" y="1168" font-size="13" text-anchor="end" font-weight="normal" font-style="normal" fill="#757575">AirWatt · v1.0 · 27/11/2026</text>
+</svg>

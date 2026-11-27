@@ -1,0 +1,11 @@
+{
+  "name": "PMS5003",
+  "author": "Equipe AirWatt",
+  "pins": ["VCC", "GND", "TX", "RX"],
+  "controls": [
+    { "id": "pm25", "label": "PM2.5 manuel (ug/m3)", "type": "range", "min": 0, "max": 200, "step": 1 },
+    { "id": "pm10", "label": "PM10 manuel (ug/m3)", "type": "range", "min": 0, "max": 300, "step": 1 },
+    { "id": "scenario", "label": "Scenario auto (0 non, 1 oui)", "type": "range", "min": 0, "max": 1, "step": 1 },
+    { "id": "panne", "label": "Panne (0 aucune, 1 muet, 2 trames abimees)", "type": "range", "min": 0, "max": 2, "step": 1 }
+  ]
+}

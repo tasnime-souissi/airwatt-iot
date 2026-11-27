@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "author": "Equipe AirWatt",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "chip-pms5003", "id": "pms", "top": -150, "left": -220, "attrs": { "pm25": "10", "pm10": "18" } },
+    { "type": "wokwi-dht22", "id": "dht", "top": -160, "left": 40, "attrs": { "temperature": "28.5", "humidity": "55" } },
+    { "type": "wokwi-led", "id": "ledFan", "top": 20, "left": 230, "attrs": { "color": "blue", "label": "Ventilateur" } },
+    { "type": "wokwi-resistor", "id": "rFan", "top": 110, "left": 180, "attrs": { "value": "220" } },
+    { "type": "wokwi-rgb-led", "id": "rgb", "top": 20, "left": 320, "attrs": { "common": "cathode" } },
+    { "type": "wokwi-resistor", "id": "rR", "top": 140, "left": 260, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "rG", "top": 170, "left": 260, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "rB", "top": 200, "left": 260, "attrs": { "value": "220" } },
+    { "type": "wokwi-buzzer", "id": "bz", "top": 20, "left": 430, "attrs": { "volume": "0.2" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "pms:VCC", "esp:5V", "red", [] ],
+    [ "pms:GND", "esp:GND.1", "black", [] ],
+    [ "pms:TX", "esp:16", "green", [] ],
+    [ "pms:RX", "esp:17", "yellow", [] ],
+
+    [ "dht:VCC", "esp:3V3", "red", [] ],
+    [ "dht:GND", "esp:GND.1", "black", [] ],
+    [ "dht:SDA", "esp:15", "orange", [] ],
+
+    [ "esp:25", "rFan:1", "blue", [] ],
+    [ "rFan:2", "ledFan:A", "blue", [] ],
+    [ "ledFan:C", "esp:GND.2", "black", [] ],
+
+    [ "esp:26", "rR:1", "red", [] ],
+    [ "rR:2", "rgb:R", "red", [] ],
+    [ "esp:27", "rG:1", "green", [] ],
+    [ "rG:2", "rgb:G", "green", [] ],
+    [ "esp:32", "rB:1", "blue", [] ],
+    [ "rB:2", "rgb:B", "blue", [] ],
+    [ "rgb:COM", "esp:GND.2", "black", [] ],
+
+    [ "esp:33", "bz:2", "purple", [] ],
+    [ "bz:1", "esp:GND.2", "black", [] ]
+  ],
+  "dependencies": {}
+}
