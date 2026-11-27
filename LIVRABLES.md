@@ -41,7 +41,7 @@ Nœud ESP32 --BLE (imposé)--> Passerelle (PC ou ESP32) --Wi-Fi / MQTT--> Things
 
 | Ressource | Lien |
 | --- | --- |
-| Dossier Google Drive | *(à compléter)* |
+| Dossier Google Drive | https://drive.google.com/drive/folders/1C_O0P9ZM3Hubbl6eTS8zG21W2MsEtpMZ |
 | Projet Wokwi | https://wokwi.com/projects/481848859547936769 |
 | Tableau de bord ThingsBoard (lecture seule) | *(à compléter)* |
 

@@ -19,7 +19,7 @@ Les prix ont été lus le **27/11/2026** sur les pages produits de deux boutique
 Le déploiement exclut le variateur de fréquence de l'extracteur (souvent déjà présent) et
 l'installation électrique, à chiffrer avec un fournisseur.
 
-## Points d'attention (relevé honnête)
+## Points d'attention
 
 | Composant | Situation | Choix retenu |
 | --- | --- | --- |
