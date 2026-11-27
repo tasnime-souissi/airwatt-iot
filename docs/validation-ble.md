@@ -1,7 +1,7 @@
-# Preuve du jalon « Technologie configurée et communicante » (BLE)
+# Validation de la communication BLE
 
-Jalon noté du cahier des charges (chapitre 3) : la technologie attribuée à l'équipe (**BLE**) est
-configurée et communique avec le microcontrôleur. Validé le **27/11/2026** sur matériel réel.
+Jalon du cahier des charges : la technologie attribuée à l'équipe (**BLE**) est configurée et
+communique avec le microcontrôleur. Les essais ont été réalisés sur une carte ESP32 réelle.
 
 | Élément | Valeur |
 | --- | --- |
@@ -15,7 +15,7 @@ configurée et communique avec le microcontrôleur. Validé le **27/11/2026** su
 
 ## 1. Vérification avec un téléphone (nRF Connect)
 
-Captures dans le dossier Drive `05 - Demo / Preuves jalon BLE` :
+Captures disponibles dans le dossier des livrables (`05 - Demo`, « Preuves jalon BLE ») :
 
 | Capture | Ce qu'elle montre |
 | --- | --- |
@@ -24,8 +24,7 @@ Captures dans le dossier Drive `05 - Demo / Preuves jalon BLE` :
 | 3. Caractéristiques | `6e7a0002` (NOTIFY, READ) et `6e7a0003` (WRITE) ; lecture d'un paquet de 12 octets |
 | 4a à 4d. Notifications | « Notifications enabled » ; valeurs reçues en direct pendant un pic de pollution déclenché par le bouton BOOT |
 
-Décodage des notifications reçues (format défini dans le contrat de données du projet,
-petit-boutiste) :
+Décodage des notifications reçues (format défini dans le [protocole BLE](protocole-ble.md), petit-boutiste) :
 
 | Paquet n° | Octets reçus | PM2.5 | PM10 | Temp. | Hum. | Ventilateur | Air |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -50,7 +49,7 @@ Service AirWatt : 6e7a0001-3c1b-4a5e-9d2f-a1b2c3d4e5f6
 
 ## 3. Chaîne complète : nœud → BLE → passerelle PC → ThingsBoard
 
-Passerelle `gateway_pc/` (Bluetooth du PC) :
+Passerelle [`gateway_pc/`](../gateway_pc), via le Bluetooth du PC :
 
 - plus de 200 mesures relayées en BLE vers ThingsBoard, **aucun paquet perdu** (compteur `seq`),
   signal BLE ≈ −33 dBm à proximité ;

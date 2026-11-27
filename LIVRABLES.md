@@ -1,51 +1,29 @@
-# AirWatt — Correspondance avec le cahier des charges
+# Correspondance avec le cahier des charges
 
-Projet IoT de semestre, classe SETP · technologie imposée : **BLE**.
-Code et documentation technique : ce dépôt GitHub. Documents à lire et vidéos : dossier
-Google Drive de l'équipe (lien ci-dessous).
+Le code et la documentation technique se trouvent dans ce dépôt ; le rapport, la présentation
+et les vidéos sont regroupés dans le dossier partagé des livrables.
 
-## Livrables (section 4 du sujet)
+## Livrables
 
-| Livrable demandé | Où le trouver | État |
-| --- | --- | --- |
-| Fiche sujet | Drive : `01 — Fiche sujet` | Rendue |
-| Prototype fonctionnel (mesure et actionnement via BLE) | `node/` (nœud ESP32, serveur GATT BLE), `gateway_pc/` et `gateway/` (passerelles), `wokwi/` (jumeau numérique) | ✅ ESP32 réelle : BLE, mesures et commandes validés jusqu'à ThingsBoard ; capteurs simulés (pas de capteurs physiques) |
-| Schéma de câblage | `docs/schema/schema-cablage.md` (+ PNG et SVG) | Terminé |
-| Plateforme IoT et tableau de bord | ThingsBoard Cloud : `docs/guide-thingsboard.md`, sauvegarde `docs/thingsboard/tableau-de-bord-airwatt.json` | Terminé, validé en direct |
-| Estimation de prix | `docs/prix/estimation-prix.md` et `docs/prix/estimation-prix.xlsx` | Terminé (prix relevés le 27/11/2026) |
-| Pitch et démo | Drive : `05 — Démo` (vidéo), `06 — Pitch` (diapositives) | Vidéo et diapositives prêtes |
-| Rapport final | Drive : `02 — Rapport` (PDF et Word) | Terminé |
-| Logo du projet | `docs/logo/` ; Drive : `07 - Logo` | Terminé |
-
-## Jalons (section 5)
-
-| Jalon | Preuve | État |
-| --- | --- | --- |
-| Technologie configurée et communicante (chapitre 3) | `docs/preuve-jalon-ble.md` ; captures nRF Connect et PDF sur Drive `05 - Demo` | ✅ Validé le 27/11/2026 sur ESP32 réelle |
-| Demo Day | Démo sur ESP32 (BLE réel) + tableau de bord ThingsBoard ; Wokwi et vidéo en secours | En préparation |
-
-## Architecture
-
-```
-Nœud ESP32 --BLE (imposé)--> Passerelle (PC ou ESP32) --Wi-Fi / MQTT--> ThingsBoard
-```
-
-| Dossier | Contenu |
+| Livrable demandé | Emplacement |
 | --- | --- |
-| `common/` | Protocole BLE partagé (paquet de 12 octets) et lecture du PMS5003 |
-| `node/` | Firmware du nœud : configurations `carte_seule` et `montage_complet` |
-| `gateway_pc/` | Passerelle Python BLE → ThingsBoard (équipe avec une seule ESP32) |
-| `gateway/` | Passerelle ESP32 (client BLE) |
-| `wokwi/` | Jumeau numérique : PMS5003 simulé, scénario automatique, pannes simulées |
-| `docs/` | Contrat de données, schéma, prix, guide ThingsBoard, checklist, état de conformité |
+| Prototype fonctionnel (mesure et actionnement via BLE) | [`node/`](node), [`gateway_pc/`](gateway_pc), [`gateway/`](gateway), [`common/`](common/AirWattProtocol) |
+| Schéma de câblage | [`docs/schema/`](docs/schema) (PDF, PNG, SVG dans le dossier des livrables) |
+| Plateforme IoT et tableau de bord | [`docs/plateforme-thingsboard.md`](docs/plateforme-thingsboard.md), sauvegarde [`docs/thingsboard/`](docs/thingsboard) |
+| Estimation de prix | [`docs/prix/`](docs/prix) |
+| Rapport | Dossier des livrables : `02 - Rapport` |
+| Présentation et démonstration | Dossier des livrables : `05 - Demo`, `06 - Pitch` |
+
+## Jalons
+
+| Jalon | Preuve |
+| --- | --- |
+| Technologie configurée et communicante (BLE) | [`docs/validation-ble.md`](docs/validation-ble.md) et captures nRF Connect |
+| Démonstration finale | ESP32 réelle et tableau de bord ThingsBoard ; jumeau Wokwi |
 
 ## Liens
 
 | Ressource | Lien |
 | --- | --- |
-| Dossier Google Drive | https://drive.google.com/drive/folders/1C_O0P9ZM3Hubbl6eTS8zG21W2MsEtpMZ |
-| Projet Wokwi | https://wokwi.com/projects/481848859547936769 |
-| Tableau de bord ThingsBoard (lecture seule) | *(à compléter)* |
-
-Les fichiers `secrets.h` et `secrets.json` (jeton ThingsBoard) ne sont pas publiés ; les
-modèles `secrets.example.*` indiquent leur format.
+| Dossier des livrables | https://drive.google.com/drive/folders/1C_O0P9ZM3Hubbl6eTS8zG21W2MsEtpMZ |
+| Jumeau numérique Wokwi | https://wokwi.com/projects/481848859547936769 |

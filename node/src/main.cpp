@@ -1,7 +1,7 @@
-// AirWatt — nœud capteur (ESP32 n°1)
+// AirWatt : nœud capteur
 //
 // Rôle : mesurer l'air, régler le ventilateur selon la pollution, et exposer
-// le service GATT AirWatt en BLE (voir docs/contrat-donnees-ble.md).
+// le service GATT AirWatt en BLE (voir docs/protocole-ble.md).
 //
 // Deux modes (réglage SIMULATED_SENSORS dans platformio.ini) :
 //   1 = « carte seule » : mesures simulées dans la carte. Le bouton BOOT
@@ -26,8 +26,8 @@
 
 using namespace airwatt;
 
-// ---- Brochage (docs : brochage du nœud capteur) ------------------------------
-constexpr int PIN_FAN_PWM = 25;  // grille du MOSFET IRLZ44N
+// ---- Brochage (voir docs/schema/schema-cablage.md) ---------------------------
+constexpr int PIN_FAN_PWM = 25;  // grille du MOSFET IRL540N
 constexpr int PIN_LED_R   = 26;
 constexpr int PIN_LED_G   = 27;
 constexpr int PIN_LED_B   = 32;

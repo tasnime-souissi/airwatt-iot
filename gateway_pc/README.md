@@ -1,46 +1,43 @@
-# Passerelle sur PC (BLE -> ThingsBoard)
+# Passerelle sur PC
 
-Remplace l'ESP32 passerelle quand l'équipe n'a qu'une seule carte. Le Bluetooth du PC
-(adaptateur MediaTek, compatible BLE) se connecte au nœud `AirWatt-Node`, décode les paquets
-de 12 octets et publie sur ThingsBoard **le même JSON que le jumeau Wokwi** : le tableau de
-bord fonctionne sans modification. Les commandes du tableau de bord sont relayées au nœud.
+Programme Python qui relie le nœud capteur à ThingsBoard : le Bluetooth du PC se connecte au
+nœud `AirWatt-Node`, décode les paquets de 12 octets, calcule l'énergie économisée et publie
+les mesures en MQTT. Les commandes du tableau de bord sont retransmises au nœud en BLE.
 
 ## Lancer
 
-1. Le nœud ESP32 est allumé et programmé (`node/`, configuration `carte_seule`).
-2. Le Bluetooth du PC est activé.
-3. Double-cliquer sur **`lancer_passerelle.bat`**. La première fois, il installe les
-   bibliothèques Python (`bleak`, `paho-mqtt`) dans `%LOCALAPPDATA%\airwatt\venv`.
+1. Programmer le nœud ESP32 (dossier [`node/`](../node)) et le mettre sous tension.
+2. Activer le Bluetooth du PC.
+3. Créer `secrets.json` à partir de `secrets.example.json` (serveur et jeton ThingsBoard).
+4. Lancer `lancer_passerelle.bat`. À la première exécution, il installe les bibliothèques
+   Python (`bleak`, `paho-mqtt`) dans un environnement dédié.
 
 Affichage attendu :
 
 ```
 [MQTT] Connecté à thingsboard.cloud
-[BLE] Nœud trouvé : 24:6F:28:xx:xx:xx (signal -55 dBm)
+[BLE] Nœud trouvé : 08:A6:F7:22:72:86 (signal -34 dBm)
 [BLE] Connecté et abonné aux mesures (une toutes les 2 s)
 [BLE->MQTT] {"fan": 20, "mode": "auto", ..., "pm25": 9, "pm10": 14, "aqi": 0, "link": "ble"}
 ```
 
-Ne pas faire tourner la simulation Wokwi en même temps : les deux enverraient leurs mesures au
-même appareil ThingsBoard.
+Le jumeau Wokwi et la passerelle publient sur le même appareil ThingsBoard : ne pas les faire
+fonctionner en même temps.
 
 ## Fichiers
 
 | Fichier | Rôle |
 | --- | --- |
-| `gateway_pc.py` | La passerelle |
+| `gateway_pc.py` | Passerelle BLE vers MQTT |
 | `requirements.txt` | Bibliothèques Python |
-| `secrets.json` | Serveur et jeton ThingsBoard (privé, ignoré par Git) |
-| `secrets.example.json` | Modèle de `secrets.json` |
-| `lancer_passerelle.bat` | Lancement en un double-clic |
+| `secrets.example.json` | Modèle du fichier de configuration privé `secrets.json` |
+| `lancer_passerelle.bat` | Lancement sous Windows |
 
-## Données publiées en plus de Wokwi
+## Données ajoutées par la passerelle
 
 | Clé | Signification |
 | --- | --- |
-| `link` | `ble` : la mesure est passée par le vrai lien BLE |
-| `rssi` | Force du signal BLE à la détection (dBm) |
-| `lost` | Paquets BLE perdus (trous dans le compteur `seq`) |
-
-Testée hors ligne le 27/11/2026 (décodage, paquets perdus, panne capteur, commandes) ;
-reste à tester avec la carte.
+| `link` | `ble` : la mesure a transité par le lien BLE |
+| `rssi` | Puissance du signal BLE à la détection (dBm) |
+| `lost` | Paquets BLE perdus, déduits du numéro de séquence |
+| `energy_wh`, `saved_wh`, `saved_pct` | Énergie consommée et économisée par rapport à un ventilateur toujours à 100 % |

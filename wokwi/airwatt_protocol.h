@@ -1,6 +1,5 @@
 // AirWatt : protocole BLE commun au nœud capteur et à la passerelle.
-// Toute modification doit suivre docs/contrat-donnees-ble.md et être validée
-// par les membres 2 (nœud) et 3 (passerelle).
+// Spécification : docs/protocole-ble.md.
 #pragma once
 #include <stdint.h>
 

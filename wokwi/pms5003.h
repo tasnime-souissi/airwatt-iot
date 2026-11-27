@@ -5,9 +5,8 @@
 // big-endian, somme de contrôle (somme des octets 0 à 29).
 //   octets 12-13 : PM2.5 « atmosphérique », octets 14-15 : PM10 « atmosphérique ».
 //
-// Correction par rapport à la version initiale : la resynchronisation se fait
-// octet par octet. Une trame corrompue ne fait donc perdre que quelques octets,
-// pas les 32 suivants.
+// La resynchronisation se fait octet par octet : une trame corrompue ne fait
+// perdre que quelques octets, et non les 32 suivants.
 #pragma once
 #include <Arduino.h>
 

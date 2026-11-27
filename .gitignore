@@ -15,7 +15,8 @@ __pycache__/
 # Fichiers temporaires Office
 ~$*
 
-# Documents hors dépôt (partagés sur Google Drive) : sujet, propositions internes, vidéos
+# Documents de travail et médias hors dépôt
 /*.pdf
 /*.docx
+/*.webp
 *.mp4

@@ -1,4 +1,4 @@
-// AirWatt — jumeau numérique Wokwi
+// AirWatt : jumeau numérique Wokwi
 //
 // Même logique que le nœud capteur (lecture PMS5003, indice de qualité de
 // l'air, régulation du ventilateur, calcul d'énergie), avec :
@@ -35,7 +35,7 @@ const int PIN_LED_G   = 27;
 const int PIN_LED_B   = 32;
 const int PIN_BUZZER  = 33;
 
-const float   FAN_RATED_W = 2.4f;  // même hypothèse que la passerelle
+const float   FAN_RATED_W = 2.4f;  // puissance nominale du ventilateur (W)
 const uint8_t FAN_MIN_PCT = 20;
 
 WiFiClient   wifi;

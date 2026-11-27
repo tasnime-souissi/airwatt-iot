@@ -1,72 +1,86 @@
-# AirWatt — Ventilation intelligente pilotée par la qualité de l'air
+<p align="center">
+  <img src="docs/logo/AirWatt-logo-clair.png" alt="AirWatt" width="460">
+</p>
 
-Projet IoT de semestre, classe SETP (thème : énergie et durabilité).
-Technologie imposée : **BLE** (Bluetooth Low Energy).
+# AirWatt : ventilation intelligente pilotée par la qualité de l'air
 
-Un nœud capteur ESP32 mesure les particules (PM2.5, PM10), la température et l'humidité,
-puis règle la vitesse d'un ventilateur selon la pollution. Il envoie ses mesures en BLE à une
-passerelle ESP32, qui les publie en MQTT sur ThingsBoard (tableau de bord, alarmes, commandes).
+Projet de semestre du module Internet des objets, classe 3 SETP, École Nationale des Sciences
+et Technologies Avancées à Borj Cédria (ENSTAB), année universitaire 2026-2027.
+
+AirWatt adapte la ventilation d'un atelier de caoutchouc à la pollution réelle. Un nœud ESP32
+mesure les particules fines (PM2.5, PM10), la température et l'humidité, calcule un indice de
+qualité de l'air et règle la vitesse du ventilateur de 20 à 100 %. Il transmet ses mesures en
+**Bluetooth Low Energy (BLE)** à une passerelle, qui les publie sur la plateforme
+**ThingsBoard** : tableau de bord, alarmes et commandes à distance.
+
+La puissance d'un ventilateur variant comme le cube de sa vitesse, une ventilation à mi-vitesse
+ne consomme que 12,5 % de la puissance nominale : AirWatt protège la santé des ouvriers tout en
+réduisant la consommation d'énergie.
+
+## Architecture
 
 ```
-Prototype réel :
-Nœud capteur (ESP32) --BLE--> Passerelle (ESP32) --Wi-Fi/MQTT--> ThingsBoard
-       ^                                                             |
-       +----------------- commandes (RPC -> écriture BLE) -----------+
-
-Simulation (Wokwi ne simule pas le BLE) :
-Jumeau Wokwi (ESP32 + PMS5003 simulé) --Wi-Fi/MQTT--> ThingsBoard
+Nœud capteur ESP32  --BLE-->  Passerelle (PC ou ESP32)  --Wi-Fi / MQTT-->  ThingsBoard Cloud
+        ^                                                                       |
+        +--------------------- commandes (RPC -> écriture BLE) -----------------+
 ```
 
-## Structure du dossier
+| Étage | Rôle | Technologies |
+| --- | --- | --- |
+| Nœud capteur | Mesurer, décider, agir ; publier les mesures | ESP32, PMS5003, BME280, serveur GATT BLE (NimBLE) |
+| Passerelle | Relayer entre BLE et MQTT ; calculer l'énergie économisée | Python (bleak, paho-mqtt) ou ESP32 |
+| Plateforme | Afficher, alerter, commander | ThingsBoard Cloud, MQTT, RPC |
+| Jumeau numérique | Tester sans matériel, simuler les pannes | Wokwi, Wi-Fi et MQTT |
+
+## Organisation du dépôt
 
 | Dossier | Contenu |
 | --- | --- |
-| `node/` | Firmware du nœud capteur (capteurs, ventilateur, serveur BLE) |
-| `gateway/` | Firmware de la passerelle ESP32 (client BLE ; MQTT à ajouter) |
-| `gateway_pc/` | Passerelle sur PC en Python (BLE -> ThingsBoard), si une seule ESP32 |
-| `wokwi/` | Jumeau numérique Wokwi, avec un PMS5003 simulé |
-| `common/` | Code partagé : protocole BLE, lecture du PMS5003 |
-| `docs/` | Contrat de données, guide ThingsBoard, schéma, prix, preuve du jalon BLE, logo |
+| [`common/`](common/AirWattProtocol) | Protocole BLE partagé et lecture du capteur PMS5003 |
+| [`node/`](node) | Firmware du nœud capteur (PlatformIO) |
+| [`gateway_pc/`](gateway_pc) | Passerelle Python BLE vers ThingsBoard |
+| [`gateway/`](gateway) | Passerelle ESP32, cliente BLE |
+| [`wokwi/`](wokwi) | Jumeau numérique et capteur PMS5003 simulé |
+| [`docs/`](docs) | Protocole, schéma de câblage, estimation de prix, plateforme, validation |
 
-Outils : VS Code + extension PlatformIO. `node/` et `gateway/` sont deux projets PlatformIO
-indépendants (compiler : `pio run`, téléverser : `pio run -t upload`).
+## Démarrage rapide
 
-## Documents de référence
+**Nœud capteur** (VS Code et PlatformIO, carte ESP32 reliée en USB) :
 
-- `IoT_Semester_Project.pdf` : cahier des charges de l'enseignante.
-- `20261121_134220.docx` : proposition initiale d'Arij.
-- `docs/contrat-donnees-ble.md` : format des paquets BLE et MQTT (à respecter par tous).
-- `docs/guide-thingsboard.md` : compte, appareil, alarmes, tableau de bord.
+```
+cd node
+pio run -t upload
+pio device monitor
+```
 
-## Avancement
+**Passerelle sur PC** (Bluetooth activé) : créer `gateway_pc/secrets.json` à partir de
+`secrets.example.json`, puis lancer `gateway_pc/lancer_passerelle.bat`.
 
-### Phase A — projet complet en simulation
+**Jumeau numérique** : voir [`wokwi/README.md`](wokwi/README.md).
 
-- [x] A1. Structure du projet, contrat de données
-- [x] A2. Jumeau Wokwi : PMS5003 simulé, DHT22, ventilateur, LED, buzzer, MQTT, commandes RPC
-      — fonctionne sur wokwi.com ; réseau non bloquant (alertes locales même sans Wi-Fi)
-- [x] A3. ThingsBoard : compte, appareil, alarmes, tableau de bord (`docs/guide-thingsboard.md`)
-      — vérifié avec des mesures de test envoyées à la main
-- [x] A4. Essai de bout en bout : Wokwi → ThingsBoard → commandes
-      — validé le 27/11/2026 : mesures en direct, commandes mode et vitesse, pic de pollution
-      avec alarme Critique
-- [x] A5a. Schéma de câblage du montage complet (`docs/schema/`)
-- [x] A5b. Estimation de prix sourcée (`docs/prix/estimation-prix.xlsx`)
-- [x] A5c. Rapport final et pitch du Demo Day (13 diapositives) — sur le Drive, dossiers
-      `02 - Rapport` et `06 - Pitch`
+## Documentation
 
-### Phase B — prototype réel
+| Document | Contenu |
+| --- | --- |
+| [Protocole BLE et MQTT](docs/protocole-ble.md) | Service GATT, format des paquets, commandes, messages MQTT |
+| [Schéma de câblage](docs/schema/schema-cablage.md) | Brochage, alimentation, choix des composants, bilan de consommation |
+| [Estimation de prix](docs/prix/estimation-prix.md) | Coût du prototype et d'un déploiement en atelier |
+| [Plateforme ThingsBoard](docs/plateforme-thingsboard.md) | Appareil, alarmes, tableau de bord, commandes |
+| [Validation BLE](docs/validation-ble.md) | Essais sur carte réelle et chaîne complète |
+| [Livrables](LIVRABLES.md) | Correspondance avec le cahier des charges |
 
-Matériel disponible : **une ESP32 seule** (pas de capteurs ni d'actionneurs). Solution hybride :
-BLE réel sur la carte, capteurs simulés dans la carte, bouton BOOT = pic de pollution, LED
-intégrée = vitesse du ventilateur et alerte, PC = passerelle BLE -> ThingsBoard.
+## Résultats
 
-- [x] B1. Nœud « carte seule » (BLE, bouton BOOT, LED intégrée) et « montage complet »
-      (PMS5003 + BME280) — compilés ; « carte seule » validé sur l'ESP32
-- [x] B2. Passerelle PC en Python — validée avec la carte (voir B4)
-- [x] B3. Jalon noté : BLE configuré et communicant — validé le 27/11/2026 depuis le PC et
-      avec nRF Connect sur téléphone (`docs/preuve-jalon-ble.md`)
-- [x] B4. Chaîne réelle nœud -> BLE -> PC -> ThingsBoard — validée le 27/11/2026 :
-      mesures toutes les 2 s sans perte, pic de pollution (bouton BOOT, PM2.5 jusqu'à 65),
-      commandes mode manuel / vitesse 71 % / retour auto transmises jusqu'à la carte
-- [ ] B5. (Si capteurs disponibles) montage complet, configuration `montage_complet`
+- Communication BLE validée sur carte ESP32 réelle, depuis un PC et depuis un téléphone.
+- Chaîne complète ESP32, BLE, passerelle, ThingsBoard : 212 messages transmis sans perte,
+  commandes à distance appliquées par la carte.
+- Pannes du capteur détectées et mises en sécurité (ventilateur à 100 %), validées sur le
+  jumeau numérique.
+
+## Équipe
+
+Tasnime Souissi, Nour Elhouda Hafyen, Arij Zneti, Eya Ben Mohamed (3 SETP).
+Encadrante : Dr. Ikbal Chaamkhi Msadaa.
+
+Le jeton d'accès ThingsBoard n'est pas publié : les fichiers `secrets.*` sont exclus du dépôt
+et les modèles `secrets.example.*` en donnent le format.

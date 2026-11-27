@@ -1,9 +1,8 @@
-"""AirWatt — passerelle sur PC : BLE (nœud ESP32) -> MQTT (ThingsBoard).
+"""AirWatt : passerelle sur PC, BLE (nœud ESP32) vers MQTT (ThingsBoard).
 
-Remplace l'ESP32 passerelle quand l'équipe n'a qu'une seule carte : le
-Bluetooth du PC se connecte au nœud « AirWatt-Node », décode les paquets de
-12 octets (docs/contrat-donnees-ble.md), calcule l'énergie économisée et
-publie le même JSON que le jumeau Wokwi. Les commandes du tableau de bord
+Le Bluetooth du PC se connecte au nœud « AirWatt-Node », décode les paquets de
+12 octets (docs/protocole-ble.md), calcule l'énergie économisée et publie les
+mesures sur ThingsBoard, dans le même format que le jumeau Wokwi. Les commandes du tableau de bord
 (RPC) sont relayées vers le nœud en BLE.
 
 Lancement : lancer_passerelle.bat (ou python gateway_pc.py)
@@ -30,7 +29,7 @@ COMMAND = struct.Struct("<BH")       # code, valeur = 3 octets
 CMD_SET_MODE, CMD_SET_FAN, CMD_SET_THRESHOLD = 0x01, 0x02, 0x03
 FLAG_AUTO_MODE, FLAG_PMS_ERROR, FLAG_BME_ERROR = 0x01, 0x02, 0x04
 
-FAN_RATED_W = 2.4  # même hypothèse que la passerelle ESP32 et le jumeau Wokwi
+FAN_RATED_W = 2.4  # puissance nominale du ventilateur du prototype (W)
 
 # La console Windows (cp1252) ne sait pas afficher tous les caractères : forcer l'UTF-8.
 if hasattr(sys.stdout, "reconfigure"):

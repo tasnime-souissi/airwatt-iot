@@ -1,10 +1,10 @@
-// AirWatt — passerelle (ESP32 n°2)
+// AirWatt : passerelle ESP32 (client BLE)
 //
 // Rôle : trouver le nœud AirWatt en BLE, s'abonner à ses mesures, les décoder,
 // calculer l'énergie économisée et relayer les commandes vers le nœud.
 //
-// Étape 2 : les mesures sont affichées en JSON sur le moniteur série.
-// L'étape 5 ajoutera l'envoi MQTT vers ThingsBoard (même JSON).
+// Les mesures sont publiées en JSON sur le moniteur série, dans le format
+// utilisé par ThingsBoard (voir docs/protocole-ble.md).
 //
 // Commandes du moniteur série (115200 bauds), envoyées au nœud en BLE :
 //   mode auto | mode manuel | fan 60 | seuil 40
@@ -15,8 +15,8 @@
 
 using namespace airwatt;
 
-// Puissance nominale du ventilateur (W) : 12 V x 0,2 A pour un ventilateur
-// 80 mm courant. À remplacer par la valeur inscrite sur l'étiquette.
+// Puissance nominale du ventilateur du prototype (W), utilisée pour le calcul
+// de l'énergie économisée.
 constexpr float FAN_RATED_W = 2.4f;
 
 // ---- État BLE ----------------------------------------------------------------
@@ -155,7 +155,7 @@ void traiterPaquet(const Packet& p) {
 
   int rssi = client ? client->getRssi() : 0;
 
-  // Même format que le message MQTT de l'étape 5 (docs/contrat-donnees-ble.md)
+  // Même format que le message publié sur ThingsBoard (docs/protocole-ble.md)
   Serial.printf("{\"pm25\":%u,\"pm10\":%u,\"temp\":%.1f,\"hum\":%u,\"fan\":%u,\"aqi\":%u,"
                 "\"mode\":\"%s\",\"energy_wh\":%.4f,\"saved_wh\":%.4f,\"saved_pct\":%.0f,"
                 "\"rssi\":%d,\"seq\":%u,\"lost\":%lu}\n",
